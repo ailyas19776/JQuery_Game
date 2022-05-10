@@ -126,7 +126,7 @@ $(document).ready(function () {//just DOM
   $('#scoress').before("<button id= 'resetall'>Reset</button>")
   $('#resetall').click(function () {
     if (document.getElementById("score-box").innerHTML == 0) {
-      alert("Pressing Reset when you are already at 0 is truly the Umich Difference")
+      alert("Pressing Reset when you are already at 0 is a very wise decision")
       var audio5 = new Audio('scripts/audio/makingfunofyou.wav')
       audio5.play()
     } else {
