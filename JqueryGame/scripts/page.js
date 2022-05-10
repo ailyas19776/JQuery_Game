@@ -1,20 +1,3 @@
-// ===================== Winter 2021 EECS 493 Assignment 2 =====================
-// This starter code provides a structure and helper functions for implementing
-// the game functionality. It is a suggestion meant to help you, and you are not
-// required to use all parts of it. You can (and should) add additional functions
-// as needed or change existing functions.
-
-// ==============================================
-// ============ Page Scoped Globals Here ========
-// ==============================================
-
-
-//rigth side of float=------willCollide()
-//how to stop so it doesnt go thru when float is passin--sovler
-//why isnt the pieces being removed-----------------not being taken in object
-//how to make them go in different directions
-
-// Counters
 let throwingItemIdx = 1;
 
 // Size Constants
@@ -25,12 +8,10 @@ const PERSON_SPEED = 25;
 const OBJECT_REFRESH_RATE = 50;  //ms
 const SCORE_UNIT = 100;  // scoring is in 100-point units
 
-// Size vars
 let maxPersonPosX, maxPersonPosY;
 let maxItemPosX;
 let maxItemPosY;
 
-// Global Window Handles (gwh__)
 let gwhGame, gwhStatus, gwhScore;
 
 // Global Object Handles
@@ -43,10 +24,7 @@ let paradeTimer;
 var arr = []
 var thecandy = $('.throwingitemnewcandy')
 var thebead = $('.throwingitemnewbead')
-/*
- * This is a handy little container trick: use objects as constants to collect
- * vals for easier (and more understandable) reference to later.
- */
+
 const KEYS = {
   left: 37,
   up: 38,
@@ -68,10 +46,6 @@ var beadCount = 0
 
 
 document.createElement("backgroundSound")
-
-// ==============================================
-// ============ Functional Code Here ============
-// ==============================================
 
 //another main:
 //$(window).on("load", function(){}) //all content
@@ -148,12 +122,7 @@ $(document).ready(function () {//just DOM
 
   })
 
-  // TODO: Add a splash screen and delay starting the game
-
-
-  //control loop**
-  //suspend all other operatison on teh game??? HOW TODO!!!
-  //gamePause variable works with the pausing of the game
+  
   $('#scoress').before("<button id= 'resetall'>Reset</button>")
   $('#resetall').click(function () {
     if (document.getElementById("score-box").innerHTML == 0) {
@@ -207,7 +176,6 @@ $(document).ready(function () {//just DOM
     }, 100);
 
 
-    // Move the parade floats
     startParade();
     // Throw items onto the route at the specified frequency
     if (stopThrowing == false) {
@@ -220,8 +188,6 @@ $(document).ready(function () {//just DOM
 
 });
 
-// Key down event handler
-// Check which key is pressed and call the associated function
 
 function keydownRouter(e) {
   switch (e.which) {
@@ -340,31 +306,8 @@ function checkCollisions() {
       document.getElementById("score-box").innerHTML = totalScore
     }
   }
-  //add yellow circle
-  //}
-
-  /*if(isColliding(player, $('.throwingItemnewBead'))){
-    for (let i = 0; i <= throwingItemIdx; i++) {
-      if(isColliding(player, $('#i-' + i))){
-        $('#i-'+ i).remove()
-        console.log("ajksdskjdf askjdf aslkjdf aslkjdf asjdklf asdfipwjaek fiapjwe kfs")
-      }
-      console.log("i " + i)
-    }
-    totalscore += 100
-    beadCount +=1
-    gwhScore.innerHtml =  totalScore
-    beadsCounter.innerHtml = beadCount
-  }*/
-
-  // if(isColliding(player, ))
-  //if collision with player and stupid car then stop car and cant move in direction of car
-  //isColliding(){}
-
-
 }
 
-// Move the parade floats (Unless they are about to collide with the player)
 function startParade() {
   console.log("Starting parade...");
   // var id = null
@@ -403,13 +346,11 @@ function startParade() {
       paradeFloat1.css('left', -300)
       paradeFloat2.css('left', -150)
     }
-    // TODO: (Depending on current poisition) update left value for each
-    // parade float, check for collision with player, etc.
+
 
   }, OBJECT_REFRESH_RATE);
 }
 
-// Get random position to throw object to, create the item, begin throwing
 function createThrowingItem() {
   // newBead = $('#bead')
   // newCandy = $('#candy')
@@ -477,29 +418,17 @@ function createThrowingItem() {
       } 
       updateThrownItemPosition(thebestthrowintheworld, xdist , ydist, 50)
     }
-    //280, 155
   }
-  //
-  //  setInterval(()=>{
-  //}, throwingspeedval)
-  // TODO
-  //clear interval andc reate new interval
+
 }
 
-//random Position
 
-// Helper function for creating items
-// throwingItemIdx - index of the item (a unique identifier)
-// type - beads or candy
-// imageString - beads.png or candy.png
 var x = 0;
 function createItemDivString(itemIndex, type, imageString) {
   return "<div id='i-" + itemIndex + "' class='throwingItem" + type + "'><img  class = '" + type + " size' id = k-" + x++ + " src='img/" + imageString + "'/></div>";
 }
 
-// Throw the item. Meant to be run recursively using setTimeout, decreasing the
-// number of iterationsLeft each time. You can also use your own implementation.
-// If the item is at it's final postion, start removing it.
+
 function updateThrownItemPosition(elementObj, xChange, yChange, iterationsLeft) {
   if (iterationsLeft > 0) {
   var newlocationx = parseInt(elementObj.css('left')) + xChange //x
@@ -530,24 +459,17 @@ function graduallyFadeAndRemoveElement(elementObj) {
   });
 }
 
-// ==============================================
-// =========== Utility Functions Here ===========
-// ==============================================
 
 // Are two elements currently colliding?
 function isColliding(o1, o2) {
   return isOrWillCollide(o1, o2, 0, 0);
 }
 
-// Will two elements collide soon?
-// Input: Two elements, upcoming change in position for the moving element
 function willCollide(o1, o2, o1_xChange, o1_yChange) {
   return isOrWillCollide(o1, o2, o1_xChange, o1_yChange);
 }
 
-// Are two elements colliding or will they collide soon?
 // Input: Two elements, upcoming change in position for the moving element
-// Use example: isOrWillCollide(paradeFloat2, person, FLOAT_SPEED, 0)
 function isOrWillCollide(o1, o2, o1_xChange, o1_yChange) {
   const o1D = {
     'left': o1.offset().left + o1_xChange,
