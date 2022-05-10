@@ -1,4 +1,4 @@
-Enjoy the game!
+<b>Enjoy the game!<b>
 __________________________________________________________
 Objective:
 Obtain the most candies and beads possible!
