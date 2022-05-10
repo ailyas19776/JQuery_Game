@@ -1,0 +1,125 @@
+
+/* Main Containers */
+.outer-container {
+  height: 600px;
+  width: 800px;
+  background: #eee;
+  border: 5px solid #ccc;
+}
+.game-window {
+  height: 100%;
+  width: 500px;
+  background: white;
+  border-right: 3px solid #53f;
+  float: left;
+  position: relative;
+}
+
+.status-window {
+  height: 100%;
+  width: 297px;
+  background: #feb;
+  float: right;
+  position: relative;
+  z-index: 3;
+}
+
+.flashingLights{
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  margin-top: 0px;
+  margin-left: -400px;
+  z-index: -2;
+}
+.splash{
+  font-style: italic;
+  font-size: xx-large;
+  z-index: 30;
+  position: relative;
+  text-align: center;
+  line-height: 70vh;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.splash.display-none {
+  opacity: 0;
+  z-index: -10;
+}
+
+.game-window{
+  background-color: lightblue;
+}
+/* Scenery */
+#paradeRoute {
+  width: 100%;
+  height: 100px;
+  background-color: #dedede;
+  position: absolute;
+  top: 200px;
+}
+#dottedLine {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  border-bottom: 1px dashed white;
+}
+
+/* Game Objects */
+#player {
+  top: 530px;
+  left: 122px;
+  position: absolute;
+  display: inline-block;
+  z-index: 2;
+}
+.paradeFloat {
+  position: absolute;
+  top: 10px;
+}
+#paradeFloat1 {
+  left: -300px;
+}
+#paradeFloat2 {
+  left: -150px;
+  border-right: 0px;
+}
+
+
+.throwingItemnewbead{
+  position: absolute;
+}
+.throwingItemnewcandy{
+  position: absolute;
+}
+
+.size{
+  height:40px;
+  width:40px;
+}
+
+
+.circle{
+  border-radius: 100%;
+  width: 40px;
+  height:40px;
+  background:yellow;
+}
+
+.sounding{
+  border: 3px dotted black;
+  width: 150px;
+  height: 100px;
+  text-align: center;
+  margin-top: 8%;
+  margin-left: 23%;
+}
+
+#soundbutton1{
+  width: 100px;
+}
+#soundbutton0{
+  width: 100px
+}

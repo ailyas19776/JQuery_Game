@@ -1,0 +1,14 @@
+Added a Pause/Play Button that Plays and Pauses Music
+The Pause/Play Button also has a border
+The Pause/Play button innerHTML changes with each click
+The Pause/Play button moves position when the "Open Settings Panel" button is pressed
+
+Collision of candy/beads create sound
+Collision of Player with Float2, stopping the Float2 from moving, creates sound
+
+Reset Score and Collection Button that Resets the Score and Number of Beads collected
+and number of Candies collected. Additional feature to reset score is that if reset is at 0 then alert message displays "Pressing Reset when you are already at 0 is truly the Umich Difference" as well as a laughing audio track. However if the reset score is not at >0 then a different audio comes on.
+
+Changed background-color to light blue
+
+Added flashing lights to splash screen and then removed them from game
