@@ -1,4 +1,5 @@
 <b>Enjoy the game!<b>
+ To begin: Download the zip file and cd into the JQueryGame directly and open the index.html file! 
 __________________________________________________________
 Objective:
 Obtain the most candies and beads possible!
